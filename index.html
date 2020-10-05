@@ -10,10 +10,124 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./Assets/stylesheets/style.css" />
   </head>
   <body>
-      
+    <header>
+      <ul class="nav justify-content-center navbar-dark bg-dark text-light">
+        <li class="nav-item">
+          <h1>Weather Dashboard</h1>
+        </li>
+      </ul>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <aside class="col-3 px-1 bg-light">
+          <h5 class="ml-2">Search for a City:</h5>
+          <form class="form-inline mb-3 ml-2">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-primary" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+          <div class="list-group m-2 pb-3" id="city-list">
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              Seattle
+            </button>
+          </div>
+        </aside>
+        <!-- <div class=""> -->
+        <main class="col-9">
+          <div class="card mt-3">
+            <div class="card-body">
+              <h2 id="city-name"></h2>
+              <br />
+              <p id="city-temp"></p>
+              <p id="city-humidity">sdfsd</p>
+              <p id="city-windSpeed">sdfsdf</p>
+              <p>
+                UV Index: 
+                <span class="text-white rounded p-2" id="city-uvIndex"></span>
+              </p>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <h3>5-day Forecast</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-2dot4 mb-3">
+                  <div class="card bg-primary">
+                    <div class="card-body">
+                      <h5 class="card-title text-white">Card title</h5>
+                      <h5 class="card-title text-white"><img /></h5>
+                      <p class="card-text text-white">Temp</p>
+                      <p class="card-text text-white">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2dot4 mb-3">
+                  <div class="card bg-primary">
+                    <div class="card-body">
+                      <h5 class="card-title text-white">Card title</h5>
+                      <h5 class="card-title text-white"><img /></h5>
+                      <p class="card-text text-white">Temp</p>
+                      <p class="card-text text-white">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2dot4 mb-3">
+                  <div class="card bg-primary">
+                    <div class="card-body">
+                      <h5 class="card-title text-white">Card title</h5>
+                      <h5 class="card-title text-white"><img /></h5>
+                      <p class="card-text text-white">Temp</p>
+                      <p class="card-text text-white">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2dot4 mb-3">
+                  <div class="card bg-primary">
+                    <div class="card-body">
+                      <h5 class="card-title text-white">Card title</h5>
+                      <h5 class="card-title text-white"><img /></h5>
+                      <p class="card-text text-white">Temp</p>
+                      <p class="card-text text-white">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2dot4 mb-3">
+                  <div class="card bg-primary">
+                    <div class="card-body">
+                      <h5 class="card-title text-white">Card title</h5>
+                      <h5 class="card-title text-white"><img /></h5>
+                      <p class="card-text text-white">Temp</p>
+                      <p class="card-text text-white">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- </div> -->
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -29,6 +143,7 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="./Assets/scripts/script.js"></script>
   </body>
 </html>
