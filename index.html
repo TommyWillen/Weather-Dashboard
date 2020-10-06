@@ -20,13 +20,13 @@
     <header>
       <ul class="nav justify-content-center navbar-dark bg-dark text-light">
         <li class="nav-item">
-          <h1>Weather Dashboard</h1>
+          <h1 class="pt-2 pb-2">Weather Dashboard</h1>
         </li>
       </ul>
     </header>
     <div class="container-fluid">
       <div class="row">
-        <aside class="col-3 px-1 bg-light">
+        <aside class="col-3 px-1 bg-light pt-2">
           <h5 class="ml-2">Search for a City:</h5>
           <form class="form-inline mb-3 ml-2">
             <input
@@ -55,8 +55,8 @@
               <h2 id="city-name"></h2>
               <br />
               <p id="city-temp"></p>
-              <p id="city-humidity">sdfsd</p>
-              <p id="city-windSpeed">sdfsdf</p>
+              <p id="city-humidity"></p>
+              <p id="city-windSpeed"></p>
               <p>
                 UV Index: 
                 <span class="text-white rounded p-2" id="city-uvIndex"></span>
@@ -74,50 +74,50 @@
                 <div class="col-lg-2dot4 mb-3">
                   <div class="card bg-primary">
                     <div class="card-body">
-                      <h5 class="card-title text-white">Card title</h5>
-                      <h5 class="card-title text-white"><img /></h5>
-                      <p class="card-text text-white">Temp</p>
-                      <p class="card-text text-white">Humidity</p>
+                      <h5 class="card-title text-white" id="forecast-1"></h5>
+                      <h5 class="card-title text-white"><img class="forecast-icon" /></h5>
+                      <p class="card-text text-white">Temp: <span class="forecast-temp"></span></p>
+                      <p class="card-text text-white">Humidity: <span class="forecast-humidity"></span></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-2dot4 mb-3">
                   <div class="card bg-primary">
                     <div class="card-body">
-                      <h5 class="card-title text-white">Card title</h5>
-                      <h5 class="card-title text-white"><img /></h5>
-                      <p class="card-text text-white">Temp</p>
-                      <p class="card-text text-white">Humidity</p>
+                      <h5 class="card-title text-white" id="forecast-2"></h5>
+                      <h5 class="card-title text-white"><img class="forecast-icon" /></h5>
+                      <p class="card-text text-white">Temp: <span class="forecast-temp"></span></p>
+                      <p class="card-text text-white">Humidity: <span class="forecast-humidity"></span></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-2dot4 mb-3">
                   <div class="card bg-primary">
                     <div class="card-body">
-                      <h5 class="card-title text-white">Card title</h5>
-                      <h5 class="card-title text-white"><img /></h5>
-                      <p class="card-text text-white">Temp</p>
-                      <p class="card-text text-white">Humidity</p>
+                      <h5 class="card-title text-white" id="forecast-3"></h5>
+                      <h5 class="card-title text-white"><img class="forecast-icon" /></h5>
+                      <p class="card-text text-white">Temp: <span class="forecast-temp"></span></p>
+                      <p class="card-text text-white">Humidity: <span class="forecast-humidity"></span></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-2dot4 mb-3">
                   <div class="card bg-primary">
                     <div class="card-body">
-                      <h5 class="card-title text-white">Card title</h5>
-                      <h5 class="card-title text-white"><img /></h5>
-                      <p class="card-text text-white">Temp</p>
-                      <p class="card-text text-white">Humidity</p>
+                      <h5 class="card-title text-white" id="forecast-4"></h5>
+                      <h5 class="card-title text-white"><img class="forecast-icon" /></h5>
+                      <p class="card-text text-white">Temp: <span class="forecast-temp"></span></p>
+                      <p class="card-text text-white">Humidity: <span class="forecast-humidity"></span></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-2dot4 mb-3">
                   <div class="card bg-primary">
                     <div class="card-body">
-                      <h5 class="card-title text-white">Card title</h5>
-                      <h5 class="card-title text-white"><img /></h5>
-                      <p class="card-text text-white">Temp</p>
-                      <p class="card-text text-white">Humidity</p>
+                      <h5 class="card-title text-white" id="forecast-5"></h5>
+                      <h5 class="card-title text-white"><img class="forecast-icon" /></h5>
+                      <p class="card-text text-white">Temp: <span class="forecast-temp"></span></p>
+                      <p class="card-text text-white">Humidity: <span class="forecast-humidity"></span></p>
                     </div>
                   </div>
                 </div>
@@ -144,6 +144,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./Assets/scripts/script.js"></script>
   </body>
 </html>
