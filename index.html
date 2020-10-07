@@ -31,32 +31,34 @@
           <form class="form-inline mb-3 ml-2">
             <input
               class="form-control mr-sm-2"
-              type="search"
+              id="city-search"
+              type="text"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-primary" type="submit">
+            <button class="btn btn-primary" id="city-search-btn" type="submit">
               <i class="fa fa-search"></i>
             </button>
           </form>
+          <div id="city-error" class="text-danger font-weight-bold" style="display: none;">
+            City Name Already Exists
+          </div>
+          <div id="city-null" class="text-danger font-weight-bold" style="display: none;">
+            City Data Cannot Be Found
+          </div>
           <div class="list-group m-2 pb-3" id="city-list">
-            <button
-              type="button"
-              class="list-group-item list-group-item-action"
-            >
-              Seattle
-            </button>
+
           </div>
         </aside>
         <!-- <div class=""> -->
         <main class="col-9">
           <div class="card mt-3">
             <div class="card-body">
-              <h2 id="city-name"></h2>
+              <h2 id="city-name">City: </h2>
               <br />
-              <p id="city-temp"></p>
-              <p id="city-humidity"></p>
-              <p id="city-windSpeed"></p>
+              <p id="city-temp">Temp: </p>
+              <p id="city-humidity">Humidity: </p>
+              <p id="city-windSpeed">Wind Speed: </p>
               <p>
                 UV Index: 
                 <span class="text-white rounded p-2" id="city-uvIndex"></span>
