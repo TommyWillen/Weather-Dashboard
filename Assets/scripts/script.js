@@ -1,5 +1,8 @@
 $(document).ready(function(){
 let cities = [];
+let states = [];
+let countries = [];
+let citiesObj = [];
 let storedCities = localStorage.getItem("storedCityInfo");
 $("#forecast-1").text(moment().add(1,"d").format("L"));
 $("#forecast-2").text(moment().add(2,"d").format("L"));
@@ -76,22 +79,19 @@ function displayCityInfo() {
           .then(function (responseU) {
             console.log(responseU);
             $("#city-uvIndex").text(responseU.value);
-          })
-          .then(function () {
-            // console.log($("#city-uvIndex").text());
-            if (parseFloat($("#city-uvIndex").text()) <= 2) {
+            if (parseFloat(responseU.value) <= 2) {
               $("#city-uvIndex").removeClass("bg-success");
               $("#city-uvIndex").removeClass("bg-warning");
               $("#city-uvIndex").removeClass("bg-danger");
               $("#city-uvIndex").removeClass("bg-high");
               $("#city-uvIndex").addClass("bg-success");
-            } else if (parseFloat($("#city-uvIndex").text()) <= 5) {
+            } else if (parseFloat(responseU.value) <= 5) {
               $("#city-uvIndex").removeClass("bg-success");
               $("#city-uvIndex").removeClass("bg-warning");
               $("#city-uvIndex").removeClass("bg-danger");
               $("#city-uvIndex").removeClass("bg-high");
               $("#city-uvIndex").addClass("bg-warning");
-            } else if (parseFloat($("#city-uvIndex").text()) <= 7) {
+            } else if (parseFloat(responseU.value) <= 7) {
               $("#city-uvIndex").removeClass("bg-success");
               $("#city-uvIndex").removeClass("bg-warning");
               $("#city-uvIndex").removeClass("bg-danger");
@@ -155,7 +155,7 @@ function addCityBtn() {
 
   newCityBtn.html(cities[i] + "<button type='button' class='close delete-btn' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
 
-  $("#city-list").append(newCityBtn);
+  $("#city-list").prepend(newCityBtn);
 
  }
 }
@@ -165,6 +165,14 @@ $("#city-search-btn").on("click", function(event){
   
   console.log(cities);
   let cityName = $("#city-search").val();
+  let cityState = $("#state-search").val();
+
+  let cityCountry = $("#country-search").val();
+
+  if(!$("#city-search").val()){
+    return
+  }
+  
   console.log(cityName)
   let cityNameLower = cityName.toLowerCase();
 if(cities.includes(cityNameLower)) {
@@ -173,13 +181,27 @@ if(cities.includes(cityNameLower)) {
  
 } else {
   cities.push(cityNameLower);
-  storedCities = JSON.stringify(cities);
-  localStorage.setItem("storedCityInfo", storedCities);
-  addCityBtn();
+  states.push(cityState);
+  countries.push(cityCountry);
+  storeCityStateObj();
 }
 })
 
+function storeCityStateObj () {
+  citiesObj = (cities.map((s,i) => ({city: cities[i], state: states[i], country: countries[i]}) ));
+  console.log(citiesObj);
+  storedCities = JSON.stringify(cities);
+  localStorage.setItem("storedCityInfo", storedCities);
+  addCityBtn();
+  console.log(citiesObj[1].country);
+}
 
+$("#advanced-search").on("click", function(){
+  $("#state-search").attr("style", "display: inline-block");
+  $("#country-search").attr("style", "display: inline-block");
+  $(this).removeClass("active");
+  $(this).addClass("disabled");
+})
 
 $(document).on("click", ".new-city-btn", displayCityInfo);
 
