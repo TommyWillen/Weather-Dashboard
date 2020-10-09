@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 let cities = [];
 let states = [];
@@ -11,45 +12,33 @@ $("#forecast-4").text(moment().add(4,"d").format("L"));
 $("#forecast-5").text(moment().add(5,"d").format("L"));
 // function to add city information for the main section of the site
 if (storedCities) {
-  cities = JSON.parse(storedCities);
-  console.log(cities);
+  citiesObj = JSON.parse(storedCities);
+  console.log(citiesObj);
   addCityBtn();
 }
 
-Array.prototype.removeCity = function() {
-  var what, a = arguments, L = a.length, ax;
-  while (L && this.length) {
-      what = a[--L];
-      while ((ax = this.indexOf(what)) !== -1) {
-          this.splice(ax, 1);
-      }
+if ( $('#city-list').children().length > 0 ) {
+  $(function(){
+    $(".new-city-btn").first().click();
   }
-  return this;
-};
+  )}
 
 function displayCityInfo() {
   let city = $(this).attr("data-city-name");
-  let cityEl = $(this);
+  let state = $(this).attr("data-state-name");
+  let country = $(this).attr("data-country-name");
+  let cityEl = $(this)
   let currentURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
+    city + "," + state + "," + country +
     "&appid=9d164725063daa41aec86f0eecbfed4a&units=imperial";
   let fiveDayURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
-    city +
+    city + "," + state + "," + country +
     "&appid=9d164725063daa41aec86f0eecbfed4a&units=imperial";
   $.ajax({
     url: currentURL,
     method: "GET",
-    error: function(){
-      nullNotification();
-      cities.removeCity(city);
-      $(cityEl).remove();
-      storedCities = JSON.stringify(cities);
-      localStorage.setItem("storedCityInfo", storedCities);
-      console.log(cities);
-      nullNotification();
-    },
     success: function(responseC){
         console.log(responseC);
         let iconCode = responseC.weather[0].icon;
@@ -136,6 +125,16 @@ function displayCityInfo() {
     })
     // console.log(forecastHumiditySpan);
     // console.log(forecastTempSpan);
+  }).fail(function(){
+    nullNotification();
+      console.log(cityEl.attr("data-city-name"))
+      cities.splice(parseInt(cityEl.attr("data-index")),1);
+      states.splice(parseInt(cityEl.attr("data-index")),1);
+      countries.splice(parseInt(cityEl.attr("data-index")),1);
+
+      $(cityEl).remove();
+      // console.log(cities);
+      storeCityStateObj();
   });
 }
 
@@ -145,18 +144,23 @@ function addCityBtn() {
  
   $("#city-list").empty()
 
- for (let i = 0; i < cities.length; i++) {
+ for (let i = 0; i < citiesObj.length; i++) {
 
   let newCityBtn = $("<button>");
 
   newCityBtn.addClass("list-group-item list-group-item-action new-city-btn");
 
-  newCityBtn.attr("data-city-name", cities[i]);
-
-  newCityBtn.html(cities[i] + "<button type='button' class='close delete-btn' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
+  newCityBtn.attr("data-city-name", citiesObj[i].city);
+  newCityBtn.attr("data-state-name", citiesObj[i].state);
+  newCityBtn.attr("data-country-name", citiesObj[i].country);
+  newCityBtn.attr("data-index", i);
+  newCityBtn.html(citiesObj[i].city + "<button type='button' class='close delete-btn' aria-label='Close'><span aria-hidden='true'>&times;</span></button>");
 
   $("#city-list").prepend(newCityBtn);
-
+  $(function(){
+    $(".new-city-btn").first().click();
+  }
+  )
  }
 }
 
@@ -175,25 +179,36 @@ $("#city-search-btn").on("click", function(event){
   
   console.log(cityName)
   let cityNameLower = cityName.toLowerCase();
-if(cities.includes(cityNameLower)) {
-  
-  duplicateNotification();
- 
-} else {
+  let cityTestObj = {
+    city: cityNameLower,
+    state: cityState,
+    country: cityCountry
+  }
+
+
+for (let i = 0; i < citiesObj.length; i++){
+if (citiesObj[i].city === cityTestObj.city && citiesObj[i].state === cityTestObj.state && citiesObj[i].country === cityTestObj.country) {
+
+duplicateNotification();
+return
+}
+}
+
+
   cities.push(cityNameLower);
   states.push(cityState);
   countries.push(cityCountry);
   storeCityStateObj();
-}
+
 })
 
 function storeCityStateObj () {
   citiesObj = (cities.map((s,i) => ({city: cities[i], state: states[i], country: countries[i]}) ));
   console.log(citiesObj);
-  storedCities = JSON.stringify(cities);
+  storedCities = JSON.stringify(citiesObj);
   localStorage.setItem("storedCityInfo", storedCities);
   addCityBtn();
-  console.log(citiesObj[1].country);
+
 }
 
 $("#advanced-search").on("click", function(){
@@ -205,15 +220,19 @@ $("#advanced-search").on("click", function(){
 
 $(document).on("click", ".new-city-btn", displayCityInfo);
 
+``
+$(document).on("click", ".delete-btn", xButtonMeansDelete)
 
-$(document).on("click", ".delete-btn", function(){
+function xButtonMeansDelete(){
   console.log($(this).parent().attr("data-city-name"))
-  cities.removeCity($(this).parent().attr("data-city-name"));
+  cities.splice(parseInt($(this).parent().attr("data-index")),1);
+  states.splice(parseInt($(this).parent().attr("data-index")),1);
+  countries.splice(parseInt($(this).parent().attr("data-index")),1);
+  // cities.removeCity($(this).parent().attr("data-city-name"));
   $(this).parent().remove();
-  console.log(cities);
-  storedCities = JSON.stringify(cities);
-  localStorage.setItem("storedCityInfo", storedCities);
-})
+  // console.log(cities);
+  storeCityStateObj();
+}
 
 function duplicateNotification() {
   $("#city-error").attr("style", "display: inline-block")
@@ -248,6 +267,9 @@ function nullNotification() {
     }
   }, 1000);
 }
+
+
+
 
 
 })
