@@ -14,6 +14,7 @@ View the [github-pages](https://tommywillen.github.io/Weather-Dashboard/)
         - [UV Index Color Code](#local-storage-and-new-day-reset)
         - [5-Day Forecast](#5-Day-Forecast)
     - [City Button List Group](#city-button-list-group)
+    - [Advanced Search](#advanced-search)
     - [Video Tutorial](#Video-Tutorial)
 - [Installation](#installation)
 
@@ -26,9 +27,10 @@ View the [github-pages](https://tommywillen.github.io/Weather-Dashboard/)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
-![Weather Dashboard](/assets/Images-and-Gifs/Work-Day-Scheduler-Main.PNG)
+![Weather Dashboard](/assets/images-and-gifs/Weather-dashboard-Main.PNG)
 
 ### Project Tasks
+![Weather Dashboard gif](/assets/images-and-gifs/Weather-Dashboard-Function.gif)
 For this project I was tasked with creating a weather dashboard using JQuesry, Moment.JS, and openweathermap api. I was asked to do the following:
 
 - When the user searches for a city, a button appears for that city that persists in local storage.
@@ -42,6 +44,7 @@ For this project I was tasked with creating a weather dashboard using JQuesry, M
         - the uv index value is color coded based on its value.
     - A five day forecast is displayed below the current day weather data for 12:00pm that day.
         - Date, weather icon, temperature, and humidity is displayed for each forecast day
+- When the user presses the advanced search link, two additional forms will appear to allow the user to include city and state information for more specific search parameters
 
 
 ### Third Party APIs
@@ -61,6 +64,7 @@ I used openweathermap api for their weather information and icons.
 For openweathermap api, I had to make a total of three calls for current data, uv index, and the 5-day forecast.
 
 #### City Data Confirmation and Error
+![error message gif](/assets/images-and-gifs/weather-dashboard-error.gif)
 
 The first call I made was to get the current weather data for the given city. The first challenge I had was to make sure there actually was city data to collect. To do this I used ajax.error and ajax.success. If there was no data ajax error would run reveal an error message, and remove the city button. If the ajax call was successful, the city information would be displayed for the current weather data.
 
@@ -76,13 +80,23 @@ I then used the .each method to append the information from the arrays to each f
 
 ### City Button List Group
 
+WHen the city search button is pressed, four tests are performed:
+1. The first test checks to see if the user actually typed in a city name and will simply clear the field if no city name was entered
+2. The second test checks to see if there aready is a button for that city. If the city already has a button, an error message is displayed and the search field is reset
+3. The third test checks to see if openweathermap api has data for the given city. If there isn't any data, a different message appears and the button is not created.
+4. The fourth test checks to see if the user included a state name but not a country name. The api call will mistake that for a country if you do not include us so this test will add it there.
 
+If the search passes all three tests, the city button will be prepended to the top of the city button list group and the information will be displayed in the main section of the document. On refresh or page load the top city's information will be displayed in the main section (the city that was searched for last).
+
+### Advanced Search
+
+I decided to add an advanced search button because there are too many cities in the US that share the same name. When the user clicks the advanced search button, two hidden forms appear and ask for city and country. Those data points will then be linked together in the final api call. As mentioned above, if there is a declared state and no declared country, us will be added to it to allow it to work properly.
 
 ### Video Tutorial
 
 Click the image to view my video feature tutorial:
 
-[![Start screen to link to youtube video](/assets/Images-and-gifs/Work-Day-Scheduler-Main.PNG)](https://youtu.be/kvQkQhar2jo)
+[![Start screen to link to youtube video](/assets/images-and-gifs/weather-dashboard-Main.PNG)](https://youtu.be/S6Ty38wGxro)
 
 ## Installation
 

@@ -18,6 +18,7 @@
   </head>
   <body>
     <header>
+      <!-- used bootstrap nav class because it provides nice formatting -->
       <ul class="nav justify-content-center navbar-dark bg-dark text-light">
         <li class="nav-item">
           <h1 class="pt-2 pb-2">Weather Dashboard</h1>
@@ -26,7 +27,7 @@
     </header>
     <div class="container-fluid">
       <div class="row">
-        <aside class="col-3 px-1 bg-light pt-2">
+        <aside class="col-md-3 px-1 bg-light pt-2">
           <h5 class="ml-2">Search for a City:</h5>
           <form class="form-inline mb-3 ml-2">
             <input
@@ -39,6 +40,7 @@
             <button class="btn btn-primary" id="city-search-btn" type="submit">
               <i class="fa fa-search"></i>
             </button>
+            <!-- starts out hidden until advanced search is pressed -->
             <input
               class="form-control mr-sm-2"
               id="state-search"
@@ -47,6 +49,7 @@
               aria-label="Search"
               style="display: none;"
             />
+            <!-- starts out hidded until advanced search is pressent -->
             <input
               class="form-control mr-sm-2"
               id="country-search"
@@ -56,19 +59,24 @@
               style="display: none;"
             />
           </form>
+          <!-- the link is blank and I used the javascrip:; value to deactivate it as a link and make it a javascript event. this link will reveal -->
           <a href="javascript:;" id="advanced-search" class="nav-link mt-0 active">Advanced Search</a>
+          <!-- error message that reveals when the city searched for already exists -->
           <div id="city-error" class="text-danger font-weight-bold" style="display: none;">
             City Name Already Exists
           </div>
+          <!-- error message that reveals when there is no city data for the city searched for -->
           <div id="city-null" class="text-danger font-weight-bold" style="display: none;">
             City Data Cannot Be Found
           </div>
+          <!-- here is where the buttons will populate -->
           <div class="list-group m-2 pb-3" id="city-list">
 
           </div>
         </aside>
-        <!-- <div class=""> -->
-        <main class="col-9">
+       
+        <main class="col-md-9">
+          <!-- used a bootstrap card to house the current city data -->
           <div class="card mt-3">
             <div class="card-body">
               <h2 id="city-name">City: </h2>
@@ -78,6 +86,7 @@
               <p id="city-windSpeed">Wind Speed: </p>
               <p>
                 UV Index: 
+                <!-- used a separate span for the uv data to only highlight the value and not the entire section -->
                 <span class="text-white rounded p-2" id="city-uvIndex"></span>
               </p>
             </div>
@@ -90,6 +99,7 @@
           <div class="row">
             <div class="container-fluid">
               <div class="row">
+                <!-- used custom class to create better balanced and responsive cards for the 5-day forecast -->
                 <div class="col-lg-2dot4 mb-3">
                   <div class="card bg-primary">
                     <div class="card-body">
@@ -144,7 +154,7 @@
             </div>
           </div>
         </main>
-        <!-- </div> -->
+     
       </div>
     </div>
     <script

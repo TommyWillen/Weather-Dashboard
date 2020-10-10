@@ -45,6 +45,7 @@
     }
 }
 
+/* created an additional class for when the uv-index was high, but not dangerous based on most uv-indexes found on the web */
 .bg-high {
     background-color: #ffa500;
 }
