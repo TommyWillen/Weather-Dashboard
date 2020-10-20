@@ -27,7 +27,7 @@ View the [github-pages](https://tommywillen.github.io/Weather-Dashboard/)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
-![Weather Dashboard](/Assets/images-and-gifs/Weather-dashboard-Main.PNG)
+![Weather Dashboard](/Assets/images-and-gifs/Weather-dashboard-Main.png)
 
 ### Project Tasks
 ![Weather Dashboard gif](/Assets/images-and-gifs/Weather-Dashboard-Function.gif)
@@ -96,7 +96,7 @@ I decided to add an advanced search button because there are too many cities in 
 
 Click the image to view my video feature tutorial:
 
-[![Start screen to link to youtube video](/Assets/images-and-gifs/weather-dashboard-main.PNG)](https://youtu.be/S6Ty38wGxro)
+[![Start screen to link to youtube video](/Assets/images-and-gifs/weather-dashboard-main.png)](https://youtu.be/S6Ty38wGxro)
 
 ## Installation
 
