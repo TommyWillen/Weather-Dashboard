@@ -27,10 +27,10 @@ View the [github-pages](https://tommywillen.github.io/Weather-Dashboard/)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
-![Weather Dashboard](/assets/images-and-gifs/Weather-dashboard-Main.PNG)
+![Weather Dashboard](/Assets/images-and-gifs/Weather-dashboard-Main.PNG)
 
 ### Project Tasks
-![Weather Dashboard gif](/assets/images-and-gifs/Weather-Dashboard-Function.gif)
+![Weather Dashboard gif](/Assets/images-and-gifs/Weather-Dashboard-Function.gif)
 For this project I was tasked with creating a weather dashboard using JQuesry, Moment.JS, and openweathermap api. I was asked to do the following:
 
 - When the user searches for a city, a button appears for that city that persists in local storage.
@@ -64,7 +64,7 @@ I used openweathermap api for their weather information and icons.
 For openweathermap api, I had to make a total of three calls for current data, uv index, and the 5-day forecast.
 
 #### City Data Confirmation and Error
-![error message gif](/assets/images-and-gifs/weather-dashboard-error.gif)
+![error message gif](/Assets/images-and-gifs/weather-dashboard-error.gif)
 
 The first call I made was to get the current weather data for the given city. The first challenge I had was to make sure there actually was city data to collect. To do this I used ajax.error and ajax.success. If there was no data ajax error would run reveal an error message, and remove the city button. If the ajax call was successful, the city information would be displayed for the current weather data.
 
@@ -96,7 +96,7 @@ I decided to add an advanced search button because there are too many cities in 
 
 Click the image to view my video feature tutorial:
 
-[![Start screen to link to youtube video](/assets/images-and-gifs/weather-dashboard-Main.PNG)](https://youtu.be/S6Ty38wGxro)
+[![Start screen to link to youtube video](/Assets/images-and-gifs/weather-dashboard-main.PNG)](https://youtu.be/S6Ty38wGxro)
 
 ## Installation
 
