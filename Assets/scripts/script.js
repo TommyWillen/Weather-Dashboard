@@ -84,7 +84,7 @@ $(document).ready(function () {
         $("#city-windSpeed").text("Wind Speed: " + responseC.wind.speed + "mph");
         // api url for the uv-index call that uses the longitude and latitude attributes from the current day call
         let uvUrl =
-          "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+          "https://api.openweathermap.org/data/2.5/uvi?lat=" +
           responseC.coord.lat +
           "&lon=" +
           responseC.coord.lon +
