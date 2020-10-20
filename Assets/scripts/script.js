@@ -67,7 +67,7 @@ $(document).ready(function () {
         // variable for the weather icon
         let iconCode = responseC.weather[0].icon;
         // variable for the src attribute to display the weather icon for the current dat
-        let iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        let iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
 
         // adds information in the current day card for all data except uv-index
         $("#city-name").html(
