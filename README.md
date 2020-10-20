@@ -27,7 +27,7 @@ View the [github-pages](https://tommywillen.github.io/Weather-Dashboard/)
 - [Acknowledgements](#acknowledgements)
 
 ## Project Description
-![Weather Dashboard](/Assets/images-and-gifs/weather-dashboard-Main.png)
+![Weather Dashboard](/Assets/images-and-gifs/weather-dashboard-main.png)
 
 ### Project Tasks
 ![Weather Dashboard gif](/Assets/images-and-gifs/Weather-Dashboard-Function.gif)
